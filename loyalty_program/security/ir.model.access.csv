@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manage_promotions,access.manage.promotions,model_manage_promotions,base.group_user,1,1,1,1
+access_customer_management,access.customer.management,model_res_partner,base.group_user,1,1,1,1
+access_loyalty_history,access.loyalty.history,model_loyalty_history,base.group_user,1,1,1,1
+access_partner_levels,access.partner.levels,model_partner_levels,base.group_user,1,1,1,1
+access_res_config_settings,access.res.config.settings,model_res_config_settings,base.group_user,1,1,1,1
+

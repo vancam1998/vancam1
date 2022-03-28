@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="manage_promotions_form_view" model="ir.ui.view">
+            <field name="name">manage.promotions.form.view</field>
+            <field name="model">manage.promotions</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <field class="text-uppercase font-weight-bold" name="name" placeholder="name"/>
+
+                        <group>
+                            <field name="points" placeholder="%"/>
+                        </group>
+                    </sheet>
+                </form>
+
+
+            </field>
+        </record>
+
+        <record id="manage_promotions_tree_view" model="ir.ui.view">
+            <field name="name">manage.promotions.tree.view</field>
+            <field name="model">manage.promotions</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="points"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_manage_promotions" model="ir.actions.act_window">
+            <field name="name">Manage Promotions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manage.promotions</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem name="Loyalty"
+                  id="menu_root_loyalty"
+                 />
+        <menuitem name="Management"
+                  id="menu_manage_promotions"
+                  parent="menu_root_loyalty"
+                  action="action_manage_promotions"
+                  sequence="0"/>
+         <menuitem name="Program"
+                  id="menu_gi"
+                  parent="menu_manage_promotions"
+                  action="action_manage_promotions"
+                  sequence="0"/>
+
+        <menuitem name="loyalty History"
+                  id="menu_loyalty_history"
+                  parent="menu_manage_promotions"
+                  action="action_manage_promotions"
+                  sequence="0"/>
+        <menuitem name="Customer Management"
+                  id="menu_customer_management"
+                  parent="menu_manage_promotions"
+                  action="action_manage_promotions"
+                  sequence="0"/>
+
+
+    </data>
+</odoo>

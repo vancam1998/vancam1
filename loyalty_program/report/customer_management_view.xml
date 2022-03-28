@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="customer_management_report"
+                model="res.partner"
+                string="customer management card"
+                report_type="qweb-html"
+                name="loyalty_program.customer_management_report"
+                file="loyalty_program.customer_management_report"
+        />
+
+        <template id="loyalty_program.customer_management_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="text-center">CÔNG TY TNHH CLOUDMEDIA</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="text-center">Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam</p>
+                                        <p class="text-center">Độc Lập - Tự Do - Hạnh Phúc</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-3 mb-3">
+                                    <div class="col-12"><h1 class="text-center">Bill Restaurant Report</h1></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>Tên khách hàng: <t t-esc="doc.name"/></p>
+                                    </div>
+                                </div>
+<!--                                <div class="row">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <p>Partner : <t t-esc="doc.partner_id"/></p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="row">
+                                    <div class="col-6"><p>contact : <t t-esc="doc.type"/></p></div>
+                                    <div class="col-6">
+                                        phone: <t t-esc="doc.phone"/>
+                                        E-mail: <t t-esc="doc.email"/>
+                                        points_customer: <t t-esc="doc.loyalty_point"/>
+                                        Partner Liver: <t t-esc="doc.loyalty_level"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+          <record id="action_customer_management_report" model="ir.actions.act_window">
+            <field name="name">Customer Management Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Report"
+                  id="menu_customer_management_report"
+                  parent="menu_root_loyalty"
+                  action="action_customer_management_report"
+                  sequence="1"/>
+
+    </data>
+</odoo>

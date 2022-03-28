@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="loyalty_sale.l_form_inherit" model="ir.ui.view">
+            <field name="name">loyalty_sale.l_form_inherit.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']" position="inside">
+                    <group>
+                        <field name="loyalty_program"/>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@name='other_information']" position="inside">
+                    <group>
+                        <field name="points"/>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@name='other_information']" position="inside">
+                    <group>
+                        <field name="point"/>
+                    </group>
+                </xpath>
+<!--                <xpath expr="//field[@name='example_field']" position="attributes">-->
+<!--                    <attribute name="invisible">True</attribute>-->
+<!--                </xpath>-->
+            </field>
+
+        </record>
+        <record id="loyalty_sale.l_tree_inherit" model="ir.ui.view">
+            <field name="name">loyalty_sale.l_tree_inherit.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+
+                </tree>
+            </field>
+
+        </record>
+    </data>
+</odoo>

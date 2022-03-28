@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="manage_promotions_report"
+                model="manage.promotions"
+                string="Manage Promotions card"
+                report_type="qweb-html"
+                name="loyalty_program.manage_promotions_report"
+                file="loyalty_program.manage_promotions_report"
+              />
+
+
+
+    </data>
+</odoo>

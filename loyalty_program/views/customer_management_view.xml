@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="customer_management_form_view" model="ir.ui.view">
+            <field name="name">customer.management.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <!-- chèn -->
+
+
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="loyalty_point"/>
+                </xpath>
+                <xpath expr="//field[@name='loyalty_point']" position="after">
+                    <field name="loyalty_level"/>
+                </xpath>
+                <!--làm ẩn -->
+                <xpath expr="//field[@name='function']" position="replace"></xpath>
+<!--                <xpath expr="//field[@name='vat']" position="replace"></xpath>-->
+<!--                <xpath expr="//field[@name='category_id']" position="replace"></xpath>-->
+<!--                <xpath expr="//field[@name='website']" position="replace"></xpath>-->
+<!--                <xpath expr="//field[@name='title']" position="replace"></xpath>-->
+<!--                <xpath expr="//field[@name='mobile']" position="replace"></xpath>-->
+<!--                <xpath expr="//field[@name='company_type']" position="replace"></xpath>-->
+<!--                <xpath expr="//notebook/page[@name='contact_addresses']" position="replace"/>-->
+<!--                <xpath expr="//notebook/page[@name='sales_purchases']" position="replace"/>-->
+<!--                <xpath expr="//notebook/page[@name='internal_notes']" position="replace"/>-->
+                <!--                <xpath expr="//notebook/page[@name='company_type']" position="replace"/>-->
+            </field>
+        </record>
+
+        <record id="customer_management_tree_view" model="ir.ui.view">
+            <field name="name">customer.management.tree.view</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_customer_management" model="ir.actions.act_window">
+            <field name="name">Customer Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Customer Management"
+                  id="menu_customer_management"
+                  parent="menu_manage_promotions"
+                  action="action_customer_management"
+                  sequence="1"/>
+    </data>
+</odoo>
